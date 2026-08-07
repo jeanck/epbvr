@@ -143,23 +143,23 @@ https://github.com/nodeca/pako/blob/main/LICENSE
 */
 
     function loadEpub() {
-        var reader = new FileReader();
-        reader.onload = openEpub;
+        var reader=new FileReader();
+        reader.onload=openEpub;
         reader.readAsArrayBuffer(document.getElementById("file").files[0]);
         document.getElementById("pick").style.display="none";
         document.getElementById("navi").style.display="initial";
     }
 
     function openEpub(e) {
-        var book = ePub();
+        var book=ePub();
         book.open(e.target.result);
 
-        var rendition = book.renderTo("view", {width:"100%", flow:"scrolled-doc"});
+        var rendition=book.renderTo("view",{width:"100%",flow:"scrolled-doc"});
         rendition.display(0);
         rendition.themes.fontSize("24px");
 
-        document.getElementById("next").addEventListener("click", function(e) { rendition.next(); }, false);
-        document.getElementById("prev").addEventListener("click", function(e) { rendition.prev(); }, false);
+        document.getElementById("next").addEventListener("click",function(e){rendition.next();},false);
+        document.getElementById("prev").addEventListener("click",function(e){rendition.prev();},false);
     }
 
 </script>
@@ -171,19 +171,15 @@ https://github.com/nodeca/pako/blob/main/LICENSE
         <div id="pick">
             <p><br><b>epbvr</b>, a crude featureless single file offline epub viewer.</p>
             <hr>
-            <p>
-                Save/copy this page html somewhere.<br>
-                Open it on a browser.<br>
-                Choose an epub file to view: <input id="file" type="file" name="file" onchange="loadEpub();"><br>
-                Refresh/reload to open another file.
-            </p>
+            <p>Save/copy this page html somewhere.<br>
+            Open it on a browser.<br>
+            Choose an epub file to view: <input id="file" type="file" name="file" onchange="loadEpub();"><br>
+            Refresh/reload to open another file.</p>
             <hr>
-            <p>
-                This web page uses/includes the <a href="https://github.com/futurepress/epub.js" rel="noreferrer noopener" target="_blank">epub.js</a> (<a href="https://github.com/futurepress/epub.js/blob/master/license" rel="noreferrer noopener" target="_blank">license</a>) library,<br>
-                and the <a href="https://github.com/Stuk/jszip" rel="noreferrer noopener" target="_blank">JSZip</a> (<a href="https://github.com/Stuk/jszip/blob/main/LICENSE.markdown" rel="noreferrer noopener" target="_blank">license</a>) library, which uses the <a href="https://github.com/nodeca/pako" rel="noreferrer noopener" target="_blank">pako</a> (<a href="https://github.com/nodeca/pako/blob/master/LICENSE" rel="noreferrer noopener" target="_blank">license</a>) library.<br>
-                The remaining code of this web page (not already covered by the previous licenses)<br>
-                is released under the MIT license (see source code lines 119-143).
-            </p>
+            <p>This web page uses/includes the <a href="https://github.com/futurepress/epub.js" rel="noreferrer noopener" target="_blank">epub.js</a> (<a href="https://github.com/futurepress/epub.js/blob/master/license" rel="noreferrer noopener" target="_blank">license</a>) library,<br>
+            and the <a href="https://github.com/Stuk/jszip" rel="noreferrer noopener" target="_blank">JSZip</a> (<a href="https://github.com/Stuk/jszip/blob/main/LICENSE.markdown" rel="noreferrer noopener" target="_blank">license</a>) library, which uses the <a href="https://github.com/nodeca/pako" rel="noreferrer noopener" target="_blank">pako</a> (<a href="https://github.com/nodeca/pako/blob/master/LICENSE" rel="noreferrer noopener" target="_blank">license</a>) library.<br>
+            The remaining code of this web page (not already covered by the previous licenses)<br>
+            is released under the MIT license (see source code lines 119-143).</p>
         </div>
         <div id="navi">
             <input id="prev" type="button" value="prev">
